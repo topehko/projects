@@ -1,0 +1,101 @@
+
+KAIKKIEN KIRJAUSTEN KATEGORIAN NIMI:
+
+Kysely 1: haetaan käyttäjän kaikki kirjaukset users id:n avulla
+db.logEvents.find({
+user_id: ObjectId("58394fca5a6863e9ce4522df")},
+{
+_id: 1,
+date: 1,
+amount: 1,
+description: 1,
+cat_id: 1,
+})
+
+Kysely 2: kategorian id:n avulla haetaan kategorian selkokielinen nimi
+db.users.aggregate(
+{$unwind:"$categories"},
+{$match:{"categories._id": ObjectId("58394fca5a6863e9ce4522e0")}},
+{$project: {_id: "$categories._id", 
+            name: "$categories.name"
+            }}
+)
+
+
+TOP5 KATEGORIAT KÄYTTÄJÄN KIRJAUKSISTA:
+Kysely 1:
+db.logEvents.aggregate(
+{$match:{user_id: ObjectId("58394fca5a6863e9ce452358")}},
+{$group:{_id: "$cat_id",Kirjauksia: {$sum:1}}},
+{$sort: {Kirjauksia: -1}},
+{$limit: 5}
+)
+
+Kysely 2:
+db.users.aggregate(
+{$unwind: "$categories"},
+{$match: {"categories._id": ObjectId("58394fca5a6863e9ce452359")}},
+{$project: {_id: "$categories._id", 
+            name: "$categories.name"
+            }}
+)
+
+
+KIRJAUSTEN OMISTAJA (user_id):
+db.logEvents.aggregate(
+	{$match: {user_id: ObjectId("58394fca5a6863e9ce452358")}},
+	{$lookup: {from:"users",localField: "user_id",foreignField: "_id",as: "usersit"}},
+	{$unwind: "$usersit"},
+	{$project: {_id: 1,
+			omistaja: "$usersit.name",
+			mail: "$usersit.email"
+            }}
+)
+
+
+HAETAAN ALATAULUKOSTA VAIN YKSI TIETUE:
+db.users.aggregate([
+{$unwind: "$categories"},
+{$match:{"categories._id": ObjectId("58394fca5a6863e9ce4522e1")}},
+{$project: {_id: "$categories._id", 
+            name: "$categories.name",
+            description: "$categories.description",
+            budget: "$categories.budget"
+            }}
+])
+
+
+YHDEN KÄYTTÄJÄN KAIKKIEN KATEGORIOIDEN TIEDOT:
+db.users.aggregate([
+{$unwind: "$categories"},
+{$match:{_id: ObjectId("58394fca5a6863e9ce4522df")}},
+{$project: {_id: "$categories._id", 
+            name: "$categories.name",
+            description: "$categories.description",
+            budget: "$categories.budget"
+            }},
+{$sort:{name:1}}			
+])
+
+
+POISTAA KÄYTTÄJÄN:
+db.users.remove({_id: ObjectId("58394fca5a6863e9ce4522df")})
+
+PÄIVITÄ VAIN YHTÄ KENTTÄÄ:
+db.logEvents.update({user_id: ObjectId("58394fca5a6863e9ce4522df")}),{$set: {amount:234}}
+
+HAKEE TAPAHTUMAN (_id:n) AVULLA:
+db.logEvents.find({_id: ObjectId("5839734fea3b55c8ada21f19")})
+
+HAKEE TIETYLLÄ PÄIVÄMÄÄRÄLLÄ:
+db.logEvents.find({date: ISODate("2016-11-26T11:34:39.994Z")})
+
+HAKEE VUOSIEN 2011-2015 TAPAHTUMAT:
+db.logEvents.find({date: {$lte:ISODate("2015-12-31"),$gte: ISODate("2011-01-01")}})
+
+db.logEvents.find({cat_id: ObjectId("58394fca5a6863e9ce4522ee"),date: {$gte:ISODate("2011-01-01")}})
+
+PÄIVITÄ SISÄISEN TAULUKON YHTÄ KENTTÄÄ:
+db.users.update(
+{_id: ObjectId("58394fca5a6863e9ce4522df"),"categories._id": ObjectId("58394fca5a6863e9ce4522e0")},
+{$set:{"categories.$.name":"Liikunta"}})
