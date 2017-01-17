@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css" /> 
+</head>
+
+<body onload="starting()">
+<title id="otsikko"></title>
+
+<h3>MESTAREIDEN TAULU</h3>
+
+<table border="3">
+	<tr>
+		<th>NIMI</th>
+		<th>TULOS</th>
+	</tr>
+	<tr>
+		<td id="championName"></td>
+		<td id="allTimeRecord"></td>
+	</tr>
+	<tr>
+		<th>PELAAMASSA</th>
+		<th>KIERROS</th>
+	</tr>
+		<tr>
+		<td id="playerName">---</td>
+		<td id="roundCalculator">---</td>
+	</tr>
+</table>
+
+
+<form id="nameForm">
+	<p>PELAAJAN NIMI</p>
+	<input type="text" id="newPlayer" value="">
+	<button type="button" id="button1" onclick="playerAdding()">ILMOITA</button>
+</form>
+
+<form id="numberForm">
+	<p id="minMax">ANNA LUKU VÄLILTÄ: 1 - 100</p>
+	<p id="noteArea"></p>
+	<input type="number" id="newNumber" value="">
+	<button type="button" id="numberValid" onclick="numberCheck()">ARVAA</button>
+</form>
+
+<form id="buttonForm">
+	<p>
+	<button type="button" id="resetButton" onclick="resetScores()">RESET</button>
+	<button type="button" id="newButton" onclick="newGame()">UUSI PELI</button>
+	</p>
+</form>
+
+</body>
+</html>
+

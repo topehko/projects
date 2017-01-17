@@ -1,0 +1,20 @@
+html,body 
+{
+background-image: url("background.gif"); 
+font-family: 	'PT Mono', monospace;
+font-size: 		20px;
+padding-left:	20px;
+padding-top:	20px; 
+}
+
+h3 {
+font-weight: 	bold;	
+}
+
+th {
+text-align: 	center;
+}
+
+#buttonBig button {
+width: 100%;
+}	

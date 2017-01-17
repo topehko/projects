@@ -1,0 +1,77 @@
+<div ng-controller="BookListController">
+	<div id="divBrowsing">
+		<h3>KIRJOJEN SELAUS</h3>
+
+		<table border="3">
+		<tr>
+			<th>NIMI</th>
+			<th>JULKAISIJA</th>
+			<th>ISBN</th>
+			<th>VUOSI</th>
+			<th>TILA</th>
+			<th>TOIMINTO</th>
+			<th>MUOKKAA</th>
+			<th>POISTA</th>
+		</tr>
+
+		<tr ng-repeat="bookss in bookfactory">
+			<td>{{bookss.bookname}}</td>
+			<td>{{bookss.author}}</td>
+			<td>{{bookss.isbn}}</td>
+			<td>{{bookss.published}}</td>
+			<td>{{bookss.checkedOut}}</td>
+			<td>
+		<div id="buttonBig">	
+			
+				<div ng-controller="LoanBookController">
+						<button id="loanValue" ng-init="setValue($index)" ng-click="loanItem($index)"></button>
+				</div>
+			</td>
+			
+			<td>
+				<div ng-controller="EditBookController">
+					<button ng-click="editItem($index)">MUOKKAA</button>
+				</div>
+			</td>
+			
+			<td>
+				<div ng-controller="DeleteBookController">
+					<button ng-click="removeItem($index)">POISTA</button>
+				</div>
+			</td>
+		</div>
+		</tr>
+		</table>
+	</div>
+
+<div id="divEdit" ng-controller="EditBookController">
+	 <h3>KIRJAN MUOKKAUS</h3>
+	 <form ng-submit="submitEdit()">
+		<table>
+			<tr>
+				<th></th>
+				<th>NIMI</th>
+				<th>JULKAISIJA</th>
+				<th>ISBN</th>
+				<th>VUOSI</th>
+			</tr>
+			<tr>
+				<td><input type="hidden" id="index"></input></td>
+				<td><input type="text" id="bookname"> </input></td>
+				<td><input type="text" id="author"></input></td>
+				<td><input type="text" id="isbn"></input></td>
+				<td><input type="number" id="published"></input></td>
+			</tr>
+		</table>
+			<div id="buttonArea">	
+				<p>
+				<input type="submit" value="MUOKKAA"></input>
+				</p>
+			</div>
+	</form>
+</div>
+
+
+
+</div>
+

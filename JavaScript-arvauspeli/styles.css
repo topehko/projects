@@ -1,0 +1,21 @@
+html,body 
+{
+background-image: url("./background.gif"); 
+font-family: 	'PT Mono', monospace;
+font-size: 		20px;
+padding-left:	18%;
+padding-top:	5%; 
+}
+
+h3 {
+font-weight: 	bold;	
+}
+
+th {
+text-align: 	center;
+}
+
+#buttonForm, #numberForm, #nameForm p {
+padding-top:	10px;
+}
+

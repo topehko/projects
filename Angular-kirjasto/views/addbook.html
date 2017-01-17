@@ -1,0 +1,28 @@
+<div ng-controller="AddBookController">
+
+<h3>LISÄÄ KIRJA</h3> 
+ 
+<form ng-submit="addBooks()">
+	<table>
+		<tr>
+			<th>NIMI</th>
+			<th>JULKAISIJA</th>
+			<th>ISBN</th>
+			<th>VUOSI</th>
+		</tr>
+
+		<tr>
+			<th><input type="text" ng-model="newbook.bookname"></input></th>
+			<th><input type="text" ng-model="newbook.author"></input></th>
+			<th><input type="text" ng-model="newbook.isbn"></input></th>
+			<th><input type="number" ng-model="newbook.published"></input></th>
+		</tr>
+	</table>
+	<div id="buttonArea">
+		<p>
+		<input type="submit" value="LISÄÄ KIRJA"></input>
+		</p>
+	</div>
+</form>	
+	
+</div>

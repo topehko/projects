@@ -1,0 +1,24 @@
+html,body 
+{
+background-image: url("background.gif"); 
+font-family: 	'PT Mono', monospace;
+font-size: 		20px;
+padding-top:	3%;
+padding-left:	10%;
+}
+
+h3 {
+font-weight: 	bold;	
+}
+
+th {
+text-align: 	center;
+}
+
+#buttonArea1, #buttonArea2 p {
+padding-top:	10px;
+}
+
+#buttonBig button {
+width: 100%;
+}	

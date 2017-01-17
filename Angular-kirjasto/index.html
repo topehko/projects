@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="bookApp">
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>   
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="./scripts/main.js"></script>
+	<script src="./scripts/controllers/controllers.js"></script>
+	<script src="./scripts/factories/factories.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css" /> 
+</head>
+
+<body>
+	<ul class="nav nav-tabs">
+		<li><a href="#/frontpage">ETUSIVU</a></li>
+		<li><a href="#/addbook">LISÄÄ KIRJA</a></li>
+		<li><a href="#/booklist">SELAA KIRJOJA</a></li>
+	</ul>	
+			
+	<div ng-view>
+	</div>
+	
+</body>
+	
+
+</html>

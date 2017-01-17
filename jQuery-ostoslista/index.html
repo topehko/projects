@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css" /> 
+</head>
+<title>OSTOSLISTA</title>
+<body> 
+	
+<table>
+	<tr>
+		<th></th>
+		<th>TUOTE</th>
+		<th>HINTA</th>
+		<th>MÄÄRÄ</th>
+	</tr>
+
+<div id="newProductArea">
+  	<tr>
+		<th><input type="hidden" id="secret" value=""></th>
+		<th><input type="text" id="product" value=""></th>
+		<th><input type="number" id="price" value=""></th>
+		<th><input type="number" id="amount" value=""></th>
+	</tr>
+</div>	
+	
+</table>
+
+<div id="buttonArea1">		
+	<p>
+		<button type="button" id="addToList">SIIRRÄ</button>
+		<button type="button" id="resetList">RESET</button>
+	</p>
+</div>
+
+<div id="buttonArea2">		
+	<p>
+		<button type="button" id="submitUpdate">HYVÄKSY</button>
+		<button type="button" id="cancelUpdate">HYLKÄÄ</button>
+	</p>
+</div>
+
+<div>
+	<p id="noteArea"></p>
+</div>
+
+
+<div id="buttonBig">
+	<div id="listArea">
+		<table id="shoppingListTable" border="1">
+		<tr id="productRow">
+	</div>
+</div>
+   
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="ImgApp">
+<head>
+<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css" /> 
+</head>
+
+<body>
+	
+<div id="container" ng-controller="ImgController">
+	<table>
+		<tr>
+			<td>Number (1 - 20):</td>
+			<td><input type="text" ng-model="newimg.name"></input></td>
+			<td><button ng-click="addimg()">Lisää kuva</button></td>	
+		</tr>
+			
+		<tr>
+			<td>Linkki (kuvan url):</td>
+			<td><input type="text" ng-model="newlink.address"></input></td>
+			<td><button ng-click="addlink()">Lisää linkki</button></td>
+		</tr>
+	</table>
+		
+	<ul>
+		<div ng-repeat-start="img in imgs">
+			<img src="{{img.src}}" width=300 ></img>
+		</div>
+		<div ng-repeat-end></div>	
+	</ul>
+</div>
+		
+		
+	</body>
+</html>
