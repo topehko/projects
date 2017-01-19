@@ -20,11 +20,13 @@
 			<td>{{bookss.isbn}}</td>
 			<td>{{bookss.published}}</td>
 			<td>{{bookss.checkedOut}}</td>
-			<td>
-		<div id="buttonBig">	
 			
-				<div ng-controller="LoanBookController">
-						<button id="loanValue" ng-init="setValue($index)" ng-click="loanItem($index)"></button>
+		
+			<td>
+				<div id="buttonBig">
+					<div ng-controller="LoanBookController">
+							<button name="loanButton" ng-init="setValue($index)" ng-click="loanItem($index)"></button>
+					</div>
 				</div>
 			</td>
 			
@@ -39,7 +41,7 @@
 					<button ng-click="removeItem($index)">POISTA</button>
 				</div>
 			</td>
-		</div>
+		
 		</tr>
 		</table>
 	</div>

@@ -25,10 +25,11 @@ app.controller("LoanBookController",function($scope,bookFactory){
 	//Muuta palauta/lainaa nappi oikeaksi kirjalistaa tulostaessa
 	$scope.setValue = function(x) {
 		if ($scope.bookfactory[x].checkedOut == "Hyllyssä") {
-			document.getElementsByTagName("BUTTON")[x*3].innerHTML = "LAINAA";
+			
+			$("button[name='loanButton']:eq(" + x + ")").text("LAINAA");
 		}
 		else {
-			document.getElementsByTagName("BUTTON")[x*3].innerHTML = "PALAUTA";
+			$("button[name='loanButton']:eq(" + x + ")").text("PALAUTA");
 		}
     }
 	
@@ -37,11 +38,11 @@ app.controller("LoanBookController",function($scope,bookFactory){
 	$scope.loanItem = function (x) {	
 		if ($scope.bookfactory[x].checkedOut == "Hyllyssä") {
 			$scope.bookfactory[x].checkedOut = "Lainassa";	
-			document.getElementsByTagName("BUTTON")[x*3].innerHTML = "PALAUTA";
+			$("button[name='loanButton']:eq(" + x + ")").text("PALAUTA");
 		}
 		else {
 			$scope.bookfactory[x].checkedOut = "Hyllyssä"
-			document.getElementsByTagName("BUTTON")[x*3].innerHTML = "LAINAA";
+			$("button[name='loanButton']:eq(" + x + ")").text("LAINAA");
 		}
     }	
 });
