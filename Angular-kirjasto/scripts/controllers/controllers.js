@@ -25,7 +25,6 @@ app.controller("LoanBookController",function($scope,bookFactory){
 	//Muuta palauta/lainaa nappi oikeaksi kirjalistaa tulostaessa
 	$scope.setValue = function(x) {
 		if ($scope.bookfactory[x].checkedOut == "Hyllyssä") {
-			
 			$("button[name='loanButton']:eq(" + x + ")").text("LAINAA");
 		}
 		else {
@@ -46,7 +45,6 @@ app.controller("LoanBookController",function($scope,bookFactory){
 		}
     }	
 });
-
 
 //Controller: muokkaa kirjaa
 app.controller("EditBookController",function($scope,bookFactory){
@@ -73,8 +71,6 @@ app.controller("EditBookController",function($scope,bookFactory){
 		$scope.bookfactory[x].published = published.value;
     }	
 });
-
-
 
 //Contoller: poista kirja
 app.controller("DeleteBookController",function($scope,bookFactory){

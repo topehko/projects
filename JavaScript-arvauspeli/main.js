@@ -1,5 +1,5 @@
-var min = 1;
-var max = 100;
+var lowerLimit = 1;
+var upperLimit = 100;
 var currentRound = 1;
 var record = localStorage.record;
 
@@ -48,23 +48,23 @@ function numberCheck() {
 			}		
 	}
 	else {
-		if (numberGuess >= min && numberGuess <= max) {
+		if (numberGuess >= lowerLimit && numberGuess <= upperLimit) {
 			if (numberGuess < correctNumber){
 				noteArea.textContent = "NUMERO OLI LIIAN PIENI";	
-				min = parseInt(numberGuess) + 1;
-				minMax.textContent = "ANNA LUKU VÄLILTÄ: " + min + " - " + max;
+				lowerLimit = parseInt(numberGuess) + 1;
+				numberLimits.textContent = "ANNA LUKU VÄLILTÄ: " + lowerLimit + " - " + upperLimit;
 			}
 			else {
 				noteArea.textContent = "NUMERO OLI LIIAN SUURI";	
-				max = parseInt(numberGuess) - 1;
-				minMax.textContent = "ANNA LUKU VÄLILTÄ: " + min + " - " + max;
+				upperLimit = parseInt(numberGuess) - 1;
+				numberLimits.textContent = "ANNA LUKU VÄLILTÄ: " + lowerLimit + " - " + upperLimit;
 			}
 			
 			currentRound++;
 			roundCalculator.textContent = currentRound;
 		}								
 		else {
-			noteArea.textContent = "EI KELPAA, SYÖTÄ KUNNOLLINEN NUMERO (" + min + " - " + max + ")";
+			noteArea.textContent = "EI KELPAA, SYÖTÄ KUNNOLLINEN NUMERO (" + lowerLimit + " - " + upperLimit + ")";
 		}	
 	}
 	newNumber.value = "";
