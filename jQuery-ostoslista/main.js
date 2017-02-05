@@ -88,7 +88,7 @@ $(document).ready(function() {
 
 	//Poista tuoterivi index(x)
 	function deleteFromList() {
-		$("#listArea").on("click", "#deleteButton", function() {
+		$(document).on("click", "#deleteButton", function() {
 			i = $(this).val();
 			shoppinglist.splice(i,1); 
 			printList();
@@ -98,7 +98,7 @@ $(document).ready(function() {
 	
 	//Muokkaa tuoterivi index(x)
 	function editProductRow() {
-		$("#listArea").on("click", "#editButton", function() {
+		$(document).on("click", "#editButton", function() {
 			$("#buttonArea1").hide();
 			$("#buttonArea2").show();
 			i = $(this).val();
@@ -112,7 +112,7 @@ $(document).ready(function() {
 	
 	//Hyväksytään tuoterivin päivitys
 	function submitUpdate() {
-		$("#buttonArea2").on("click", "#submitUpdate", function() {	
+		$(document).on("click", "#submitUpdate", function() {	
 			if (validator(parseFloat(price.value),parseFloat(amount.value)) == true){
 				var i = secret.value;
 				$("#noteArea").hide();
@@ -134,7 +134,7 @@ $(document).ready(function() {
 	
 	//Tuoterivin päivitys hylätään
 	function cancelUpdate() {
-		$("#buttonArea2").on("click", "#cancelUpdate", function() {
+		$(document).on("click", "#cancelUpdate", function() {
 		clearNewProductArea();	
 		$("#buttonArea1").show();
 		$("#buttonArea2").hide();
